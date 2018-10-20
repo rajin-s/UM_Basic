@@ -17,7 +17,7 @@ namespace UModules
     /// <summary>
     /// Reusable asset to hold spline curve data using a Unity AnimationCurve
     /// </summary>
-    [CreateAssetMenu(fileName = "Curve_", menuName = "UModules/Data/Curve", order = 0)]
+    [CreateAssetMenu(fileName = "Curve_", menuName = "UModules/Curve", order = 0)]
     public class CurveAsset : ScriptableObject
     {
         /// <summary>

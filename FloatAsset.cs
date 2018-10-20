@@ -16,7 +16,7 @@ namespace UModules
     /// Many behaviors can share a reference to this number, thus it can be changed in just one location to affect anything referencing it.
     /// Also supports being set during a play session while retaining its original value on subsequent sessions.
     /// </summary>
-    [CreateAssetMenu(fileName = "Float_", menuName = "UModules/Data/Float", order = 0)]
+    [CreateAssetMenu(fileName = "Float_", menuName = "UModules/Float", order = 0)]
     public class FloatAsset : ScriptableObject
     {
         /// <summary>

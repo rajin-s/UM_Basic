@@ -2,8 +2,10 @@
 
 ## Contents
 - Containers
-- CurveAsset (+ CurveAssetExtensions)
 - FloatAsset
+- CurveAsset (+ CurveAssetExtensions)
+- GlobalEventAsset
+- ExtendedBehaviour
 
 ## Setup
 - Navigate to the desired install location inside a Unity project git repository
@@ -30,4 +32,4 @@ _requires setup as a git submodule according to the above instructions_
   to get the latest version of this submodule
 
 ## License
-Available under the GNU AGPL3 License (see LICENSE file)
+Available under the GNU AGPL3 License (see UM_Basic/LICENSE)
