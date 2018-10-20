@@ -15,9 +15,9 @@ using UnityEngine;
 namespace UModules
 {
     /// <summary>
-    /// Reusable object to hold spline curve data using a Unity AnimationCurve
+    /// Reusable asset to hold spline curve data using a Unity AnimationCurve
     /// </summary>
-    [CreateAssetMenu(fileName = "Curve_", menuName = "UModule/Data/CurveAsset", order = 0)]
+    [CreateAssetMenu(fileName = "Curve_", menuName = "UModules/Data/Curve", order = 0)]
     public class CurveAsset : ScriptableObject
     {
         /// <summary>
