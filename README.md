@@ -1,11 +1,7 @@
 # UModule Basic Structures and Extensions
 
 ## Contents
-- Containers
-- FloatAsset
-- CurveAsset (+ CurveAssetExtensions)
-- GlobalEventAsset
-- ExtendedBehaviour
+- List with descriptions to be added
 
 ## Setup
 - Navigate to the desired install location inside a Unity project git repository

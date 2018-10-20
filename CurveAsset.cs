@@ -140,10 +140,10 @@ namespace UModules
     }
 
     /// <summary>
-    /// Extension method container for existing classes to work nicely with CurveAssets
+    /// Extension method container for existing classes to work nicely with Curve Assets
     /// </summary>
     /// <seealso cref="CurveAsset" />
-    public static class CurveAssetExtensions
+    public static class CurveAssetExtensionMethods
     {
         /// <summary>
         /// Extension method to start a curve's Run routine on a given MonoBehaviour

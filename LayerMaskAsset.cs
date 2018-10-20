@@ -30,7 +30,7 @@ namespace UModules
     /// <summary>
     /// Extension method container for working with layer masks
     /// </summary>
-    public static class LayerMaskExtensions
+    public static class LayerMaskExtensionMethods
     {
         /// <summary>
         /// Test if a given layer is contained with the given mask
