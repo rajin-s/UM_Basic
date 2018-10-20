@@ -4,7 +4,7 @@
 
     by: Rajin Shankar
     part of: UM_Basic
-    
+
     available to use according to UM_Basic/LICENSE
  */
 
@@ -60,9 +60,9 @@ namespace UModules
         /// <summary>
         /// Call Evaluate using the default scale and duration values
         /// </summary>
-        /// <seealso cref="CurveAsset.Evaluate(float, float, float)" />
         /// <param name="t">Input time</param>
         /// <returns>scale * curve(t / duration)</returns>
+        /// <seealso cref="CurveAsset.Evaluate(float, float, float)" />
         public float Evaluate(float t) { return Evaluate(t, defaultScale, defaultDuration); }
         /// <summary>
         /// Evaluate the curve at the given time with respect to the given scale and duration
@@ -80,9 +80,9 @@ namespace UModules
         /// <summary>
         /// Call EvaluateUnclamped using the default scale and duration values
         /// </summary>
-        /// <seealso cref="CurveAsset.EvaluateUnclamped(float, float, float)" />
         /// <param name="t">Input time</param>
         /// <returns>scale * curve(t / duration)</returns>
+        /// <seealso cref="CurveAsset.EvaluateUnclamped(float, float, float)" />
         public float EvaluateUnclamped(float t) { return EvaluateUnclamped(t, defaultScale, defaultDuration); }
 
         /// <summary>
@@ -119,6 +119,7 @@ namespace UModules
         /// <param name="scale">Scale factor for curve value</param>
         /// <param name="callback">Callback action that takes an input float value</param>
         /// <returns>The generated routine</returns>
+        /// <seealso cref="CurveAsset.Run(float, float, Action{float}, Action, Action)" />
         public IEnumerator Run(float duration, float scale, Action<float> callback) { return Run(duration, scale, callback, null, null); }
         /// <summary>
         /// Generate a coroutine that can be run on a MonoBehaviour to evaluate a callback with the curve's value over time, with added actions called before and after evaluation
@@ -127,14 +128,15 @@ namespace UModules
         /// <param name="onStart">Action run before curve evaluation begins</param>
         /// <param name="onEnd">Action run after curve evaluation finishes</param>
         /// <returns>The generated routine</returns>
+        /// <seealso cref="CurveAsset.Run(float, float, Action{float}, Action, Action)" />
         public IEnumerator Run(Action<float> callback, Action onStart, Action onEnd) { return Run(defaultDuration, defaultScale, callback, onStart, onEnd); }
         /// <summary>
         /// Generate a coroutine that can be run on a MonoBehaviour to evaluate a callback with the curve's value over time
         /// </summary>
         /// <param name="callback">Callback action that takes an input float value</param>
         /// <returns>The generated routine</returns>
+        /// <seealso cref="CurveAsset.Run(float, float, Action{float}, Action, Action)" />
         public IEnumerator Run(Action<float> callback) { return Run(defaultDuration, defaultScale, callback, null, null); }
-
     }
 
     /// <summary>
@@ -179,7 +181,7 @@ namespace UModules
         /// <param name="callback">Callback action that takes an input float value</param>
         /// <param name="onStart">Action run before curve evaluation begins</param>
         /// <param name="onEnd">Action run after curve evaluation finishes</param>
-        /// /// <seealso cref="CurveAsset.Run(Action{float}, Action, Action)" />
+        /// <seealso cref="CurveAsset.Run(Action{float}, Action, Action)" />
         public static void RunCurve(this MonoBehaviour behaviour, CurveAsset curve, Action<float> callback, Action onStart, Action onEnd)
         {
             behaviour.StartCoroutine(curve.Run(callback, onStart, onEnd));
@@ -190,10 +192,75 @@ namespace UModules
         /// <param name="behaviour">The behaviour to start the routine on</param>
         /// <param name="curve">The curve to get the routine from</param>
         /// <param name="callback">Callback action that takes an input float value</param>
-        /// /// <seealso cref="CurveAsset.Run(Action{float})" />
+        /// <seealso cref="CurveAsset.Run(Action{float})" />
         public static void RunCurve(this MonoBehaviour behaviour, CurveAsset curve, Action<float> callback)
         {
             behaviour.StartCoroutine(curve.Run(callback));
+        }
+
+        /// <summary>
+        /// Extension method to start a curve's Run routine on a given MonoBehaviour if it is not already active
+        /// isActive is set true before calling onStart and set false after calling onEnd
+        /// </summary>
+        /// <param name="behaviour">The behaviour to start the routine on</param>
+        /// <param name="curve">The curve to get the routine from</param>
+        /// <param name="duration">Inverse scale factor for input time</param>
+        /// <param name="scale">Scale factor for curve value</param>
+        /// <param name="callback">Callback action that takes an input float value</param>
+        /// <param name="onStart">Action run before curve evaluation begins</param>
+        /// <param name="onEnd">Action run after curve evaluation finishes</param>
+        /// <param name="isActive">Is the curve already being run?</param>
+        /// <seealso cref="CurveAsset.Run(float, float, Action{float}, Action, Action)" />
+        public static void RunCurve(this MonoBehaviour behaviour, CurveAsset curve, float duration, float scale, Action<float> callback, Action onStart, Action onEnd, Reference<bool> isActive)
+        {
+            if (isActive) return;
+            behaviour.StartCoroutine(curve.Run(duration, scale, callback, () => { isActive.Set(true); onStart(); }, () => { onEnd(); isActive.Set(false); }));
+        }
+        /// <summary>
+        /// Extension method to start a curve's Run routine on a given MonoBehaviour if it is not already active
+        /// isActive is set true before evaluation and set false afterward
+        /// </summary>
+        /// <param name="behaviour">The behaviour to start the routine on</param>
+        /// <param name="curve">The curve to get the routine from</param>
+        /// <param name="duration">Inverse scale factor for input time</param>
+        /// <param name="scale">Scale factor for curve value</param>
+        /// <param name="callback">Callback action that takes an input float value</param>
+        /// <param name="isActive">Is the curve already being run?</param>
+        /// <seealso cref="CurveAsset.Run(float, float, Action{float})" />
+        public static void RunCurve(this MonoBehaviour behaviour, CurveAsset curve, float duration, float scale, Action<float> callback, Reference<bool> isActive)
+        {
+            if (isActive) return;
+            behaviour.StartCoroutine(curve.Run(duration, scale, callback, () => isActive.Set(true), () => isActive.Set(false)));
+        }
+        /// <summary>
+        /// Extension method to start a curve's Run routine on a given MonoBehaviour if it is not already active
+        /// isActive is set true before calling onStart and set false after calling onEnd
+        /// </summary>
+        /// <param name="behaviour">The behaviour to start the routine on</param>
+        /// <param name="curve">The curve to get the routine from</param>
+        /// <param name="callback">Callback action that takes an input float value</param>
+        /// <param name="onStart">Action run before curve evaluation begins</param>
+        /// <param name="onEnd">Action run after curve evaluation finishes</param>
+        /// <param name="isActive">Is the curve already being run?</param>
+        /// <seealso cref="CurveAsset.Run(Action{float}, Action, Action)" />
+        public static void RunCurve(this MonoBehaviour behaviour, CurveAsset curve, Action<float> callback, Action onStart, Action onEnd, Reference<bool> isActive)
+        {
+            if (isActive) return;
+            behaviour.StartCoroutine(curve.Run(callback, () => { isActive.Set(true); onStart(); }, () => { onEnd(); isActive.Set(false); }));
+        }
+        /// <summary>
+        /// Extension method to start a curve's Run routine on a given MonoBehaviour if it is not already active
+        /// isActive is set true before evaluation and set false afterward
+        /// </summary>
+        /// <param name="behaviour">The behaviour to start the routine on</param>
+        /// <param name="curve">The curve to get the routine from</param>
+        /// <param name="callback">Callback action that takes an input float value</param>
+        /// <param name="isActive">Is the curve already being run?</param>
+        /// <seealso cref="CurveAsset.Run(Action{float})" />
+        public static void RunCurve(this MonoBehaviour behaviour, CurveAsset curve, Action<float> callback, Reference<bool> isActive)
+        {
+            if (isActive) return;
+            behaviour.StartCoroutine(curve.Run(callback, () => isActive.Set(true), () => isActive.Set(false)));
         }
     }
 }
