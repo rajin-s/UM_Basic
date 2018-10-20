@@ -32,4 +32,4 @@ _requires setup as a git submodule according to the above instructions_
   to get the latest version of this submodule
 
 ## License
-Available under the GNU AGPL3 License (see UM_Basic/LICENSE)
+Available according to the terms in `UM_Basic/LICENSE` (GNU GPL3)
