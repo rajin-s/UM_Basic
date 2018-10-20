@@ -6,18 +6,22 @@
 
 ## Setup
 - Navigate to the desired install location inside a Unity project git repository
+
   `cd Assets/Modules`
 - Inside the target folder, add this repository as a submodule
+
   `git submodule add https://github.com/rajin-s/UM_Basic.git`
 - Commit the changes to finish registering the submodule
-  `git add --all; git commit -m "Added UM_Basic submodule`
+
+  `git add --all; git commit -m "Added UM_Basic submodule"`
 - Initialize the submodule from anywhere in the parent repository
+
   `git submodule init`
 
 ## Updating
 (requires setup as a git submodule according to the above instructions)
-- Inside the parent Unity project git repository, enter
+- Inside the parent Unity project repository, enter
   `git submodule update --remote`
-  to get the latest version of the repository
+  to get the latest version of this submodule
 
 Available under the GNU AGPL3 License (see LICENSE file)
