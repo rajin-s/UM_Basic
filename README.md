@@ -19,7 +19,7 @@
   `git submodule init`
 
 ## Updating
-(requires setup as a git submodule according to the above instructions)
+_requires setup as a git submodule according to the above instructions_
 - Inside the parent Unity project repository, enter
   `git submodule update --remote`
   to get the latest version of this submodule
