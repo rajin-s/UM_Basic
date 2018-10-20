@@ -24,4 +24,5 @@ _requires setup as a git submodule according to the above instructions_
   `git submodule update --remote`
   to get the latest version of this submodule
 
+## License
 Available under the GNU AGPL3 License (see LICENSE file)
