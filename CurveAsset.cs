@@ -1,6 +1,6 @@
 /*
     UModules::CurveAsset
-    UModules::CurveAssetExtensions
+    UModules::CurveAssetExtensionMethods
 
     by: Rajin Shankar
     part of: UM_Basic

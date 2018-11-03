@@ -1,3 +1,12 @@
+/*
+    UModules::ExtendedBehaviour
+
+    by: Rajin Shankar
+    part of: UM_Basic
+
+    available to use according to UM_Basic/LICENSE
+ */
+
 using UnityEngine;
 
 namespace UModules
