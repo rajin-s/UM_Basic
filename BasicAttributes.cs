@@ -3,7 +3,8 @@
     UModules::ReadonlyAttribute
     UModules::OnlyShowIfAttribute
     UModules::DontShowIfAttribute
-    UModules::OnlyShowWhenAttribute
+    
+    Future: UModules::OnlyShowWhenAttribute
 
     by: Rajin Shankar
     part of: UM_Basic
@@ -81,17 +82,17 @@ namespace UModules
         }
     }
 
-    /// <summary>
-    /// Attribute to only diplay a property when a given predicate is true
-    /// </summary>
-    public class OnlyShowWhenAttribute : PropertyAttribute
-    {
-        public delegate bool Predicate();
-        public Predicate predicate;
+    // Note: Lambdas in attributes not supported in C# (yet)
+    // /// <summary>
+    // /// Attribute to only diplay a property when a given predicate is true
+    // /// </summary>
+    // public class OnlyShowWhenAttribute : PropertyAttribute
+    // {
+    //     public System.Func<bool> predicate;
 
-        public OnlyShowWhenAttribute(Predicate predicate)
-        {
-            this.predicate = predicate;
-        }
-    }
+    //     public OnlyShowWhenAttribute(System.Func<bool> predicate)
+    //     {
+    //         this.predicate = predicate;
+    //     }
+    // }
 }
