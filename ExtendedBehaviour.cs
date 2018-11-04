@@ -2,7 +2,7 @@
     UModules::ExtendedBehaviour
 
     by: Rajin Shankar
-    part of: UM_Basic
+    part of: UModules::Basic
 
     available to use according to UM_Basic/LICENSE
  */
