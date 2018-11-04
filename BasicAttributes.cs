@@ -1,6 +1,9 @@
 /*
     UModules::ButtonAttribute
     UModules::ReadonlyAttribute
+    UModules::OnlyShowIfAttribute
+    UModules::DontShowIfAttribute
+    UModules::OnlyShowWhenAttribute
 
     by: Rajin Shankar
     part of: UM_Basic
