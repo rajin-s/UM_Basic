@@ -52,4 +52,43 @@ namespace UModules
     /// Attribute to display a property but disable editing
     /// </summary>
     public class ReadonlyAttribute : PropertyAttribute { }
+
+    /// <summary>
+    /// Attribute to only display a property when a given serialized property is true
+    /// </summary>
+    public class OnlyShowIfAttribute : PropertyAttribute
+    {
+        public string propertyName;
+
+        public OnlyShowIfAttribute(string propertyName)
+        {
+            this.propertyName = propertyName;
+        }
+    }
+    /// <summary>
+    /// Attribute to only display a property when a given serialized property is false
+    /// </summary>
+    public class DontShowIfAttribute : PropertyAttribute
+    {
+        public string propertyName;
+
+        public DontShowIfAttribute(string propertyName)
+        {
+            this.propertyName = propertyName;
+        }
+    }
+
+    /// <summary>
+    /// Attribute to only diplay a property when a given predicate is true
+    /// </summary>
+    public class OnlyShowWhenAttribute : PropertyAttribute
+    {
+        public delegate bool Predicate();
+        public Predicate predicate;
+
+        public OnlyShowWhenAttribute(Predicate predicate)
+        {
+            this.predicate = predicate;
+        }
+    }
 }
