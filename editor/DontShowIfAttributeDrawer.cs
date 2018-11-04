@@ -17,7 +17,7 @@ namespace UModules.Editor
         /// <returns>The negated value of the target property if it exists, true otherwise</returns>
         private bool CheckTargetProperty(SerializedObject target)
         {
-            OnlyShowIfAttribute show = attribute as OnlyShowIfAttribute;
+            DontShowIfAttribute show = attribute as DontShowIfAttribute;
             SerializedProperty checkProperty = target.FindProperty(show.propertyName);
             return checkProperty == null || !checkProperty.boolValue;
         }
@@ -39,7 +39,7 @@ namespace UModules.Editor
         {
             if (CheckTargetProperty(property.serializedObject))
             {
-                return base.GetPropertyHeight(property, label);
+                return EditorGUI.GetPropertyHeight(property, label);
             }
             else return 0;
         }

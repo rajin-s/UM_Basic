@@ -39,7 +39,7 @@ namespace UModules.Editor
         {
             if (CheckTargetProperty(property.serializedObject))
             {
-                return base.GetPropertyHeight(property, label);
+                return EditorGUI.GetPropertyHeight(property, label);
             }
             else return 0;
         }
