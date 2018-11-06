@@ -56,11 +56,13 @@ namespace UModules
     /// <summary>
     /// Attribute to display a property but disable editing
     /// </summary>
+    /// <module>UM_Basic</module>
     public class ReadonlyAttribute : PropertyAttribute { }
 
     /// <summary>
     /// Attribute to only display a property when a given serialized property is true
     /// </summary>
+    /// <module>UM_Basic</module>
     public class OnlyShowIfAttribute : PropertyAttribute
     {
         public string propertyName;
@@ -73,6 +75,7 @@ namespace UModules
     /// <summary>
     /// Attribute to only display a property when a given serialized property is false
     /// </summary>
+    /// <module>UM_Basic</module>
     public class DontShowIfAttribute : PropertyAttribute
     {
         public string propertyName;
@@ -87,6 +90,7 @@ namespace UModules
     // /// <summary>
     // /// Attribute to only diplay a property when a given predicate is true
     // /// </summary>
+    // /// <module>UM_Basic</module>
     // public class OnlyShowWhenAttribute : PropertyAttribute
     // {
     //     public System.Func<bool> predicate;
