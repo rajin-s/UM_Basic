@@ -14,6 +14,7 @@ namespace UModules
     /// <summary>
     /// Basic usability extensions to MonoBehaviour
     /// </summary>
+    /// <module>UM_Basic</module>
     public abstract class ExtendedBehaviour : MonoBehaviour
     {
         /// <summary>

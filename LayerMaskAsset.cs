@@ -16,6 +16,7 @@ namespace UModules
     /// Reusable asset to hold a static layer mask.
     /// Many behaviors can share a reference to this mask, thus it can be changed in just one location to affect anything referencing it.
     /// </summary>
+    /// <module>UM_Basic</module>
     [CreateAssetMenu(fileName = "Mask_", menuName = "UModules/Layer Mask", order = 1)]
     public class LayerMaskAsset : ScriptableObject
     {

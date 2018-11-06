@@ -13,6 +13,7 @@
      /// Generic class for storing a single value in a referencable structure
      /// </summary>
      /// <typeparam name="T">Type of the value being stored</typeparam>
+    /// <module>UM_Basic</module>
      public class Reference<T>
      {
          /// <summary>

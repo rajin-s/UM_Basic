@@ -6,6 +6,7 @@ namespace UModules.Editor
     /// <summary>
     /// Property drawer to display a value but disable editing
     /// </summary>
+    /// <module>UM_Basic</module>
     [CustomPropertyDrawer(typeof(ReadonlyAttribute))]
     public class ReadonlyAttributeDrawer : PropertyDrawer
     {

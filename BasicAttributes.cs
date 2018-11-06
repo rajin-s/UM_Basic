@@ -19,6 +19,7 @@ namespace UModules
     /// <summary>
     /// Attribute to create a simple button that calls a method through SendMessage
     /// </summary>
+    /// <module>UM_Basic</module>
     public class ButtonAttribute : PropertyAttribute
     {
         /// <summary>

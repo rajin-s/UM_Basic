@@ -16,6 +16,7 @@ namespace UModules
     /// A reusable asset representing a single communication channel.
     /// Behaviours can subscribe to a global event with some callback, or notify all subscribers to execute those callbacks.
     /// </summary>
+    /// <module>UM_Basic</module>
     [CreateAssetMenu(fileName = "GlobalEvent_", menuName = "UModules/Global Event", order = 11)]
     public class GlobalEventAsset : ScriptableObject
     {

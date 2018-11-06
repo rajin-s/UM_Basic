@@ -6,6 +6,7 @@ namespace UModules.Editor
     /// <summary>
     /// Property drawer to display a property based on the value of another
     /// </summary>
+    /// <module>UM_Basic</module>
     [CustomPropertyDrawer(typeof(OnlyShowIfAttribute))]
     public class OnlyShowIfAttributeDrawer : PropertyDrawer
     {

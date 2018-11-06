@@ -7,6 +7,7 @@ namespace UModules.Editor
     /// Property drawer to display a ButtonAttribute
     /// </summary>
     /// <seealso cref="ButtonAttribute" />
+    /// <module>UM_Basic</module>
     [CustomPropertyDrawer(typeof(ButtonAttribute))]
     public class ButtonAttributeDrawer : PropertyDrawer
     {

@@ -7,6 +7,7 @@
 //     /// <summary>
 //     /// Property drawer to display a property based on a given predicate
 //     /// </summary>
+//     /// <module>UM_Basic</module>
 //     [CustomPropertyDrawer(typeof(OnlyShowWhenAttribute))]
 //     public class OnlyShowWhenAttributeDrawer : PropertyDrawer
 //     {
