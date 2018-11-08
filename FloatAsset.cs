@@ -23,18 +23,21 @@ namespace UModules
         /// <summary>
         /// The original stored value
         /// </summary>
+        /// <access>private float</access>
         [SerializeField] private float value;
         /// <summary>
         /// The value to use after calling Set
         /// </summary>
+        /// <access>private float?</access>
         private float? overrideValue = null;
 
         /// <summary>
         /// Override the value set in editor with a new value.
         /// (Setting value directly changes the serialized object, Set will only change the object's value for a single session.)
         /// </summary>
-        /// <param name="newValue">Override value to store</param>
-        /// <returns></returns>
+        /// <access>public float</access>
+        /// <param name="newValue" type="float">Override value to store</param>
+        /// <returns>The new value</returns>
         public float Set(float newValue)
         {
             overrideValue = newValue;
@@ -45,7 +48,8 @@ namespace UModules
         /// Implicitly convert a FloatAsset to a float.
         /// Uses the override value created by Set if it exists, otherwise just the base stored value.
         /// </summary>
-        /// <param name="floatAsset">The asset to convert</param>
+        /// <access>public static</access>
+        /// <param name="floatAsset" type="FloatAsset">The asset to convert</param>
         public static implicit operator float(FloatAsset floatAsset)
         {
             return floatAsset.overrideValue ?? floatAsset.value;

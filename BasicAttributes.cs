@@ -25,14 +25,17 @@ namespace UModules
         /// <summary>
         /// The name of the method to call
         /// </summary>
+        /// <access>public string</access>
         public string methodName;
         /// <summary>
         /// The text to display on the button in the inspector
         /// </summary>
+        /// <access>public string</access>
         public string displayName;
         /// <summary>
         /// Should the button be grouped on the same line as the property it's attached to?
         /// </summary>
+        /// <access>public bool</access>
         public bool groupHorizontal;
 
         public ButtonAttribute(string methodName, string displayName, bool groupHorizontal = true)
@@ -46,7 +49,7 @@ namespace UModules
         /// <summary>
         /// Call SendMessage on a given target with the button's method name
         /// </summary>
-        /// <param name="target">The MonoBehaviour to send the message to</param>
+        /// <param name="target" type="MonoBehaviour">The MonoBehaviour to send the message to</param>
         public void Invoke(MonoBehaviour target)
         {
             target.SendMessage(methodName, SendMessageOptions.DontRequireReceiver);
@@ -57,14 +60,42 @@ namespace UModules
     /// Attribute to display a property but disable editing
     /// </summary>
     /// <module>UM_Basic</module>
+    /// <example>
+    /// using UModules;
+    /// public class Foo : ExtendedBehaviour
+    /// {
+    ///     public float editableValue;
+    /// 
+    ///     [Readonly]
+    ///     public float uneditableValue;
+    /// }
+    /// </example>
     public class ReadonlyAttribute : PropertyAttribute { }
 
     /// <summary>
     /// Attribute to only display a property when a given serialized property is true
     /// </summary>
     /// <module>UM_Basic</module>
+    /// <example>
+    /// using UModules;
+    /// public class Foo : ExtendedBehaviour
+    /// {
+    ///     [SerializeField]
+    ///     private bool showAdditionalValues = false;
+    /// 
+    ///     [OnlyShowIf("showAdditionalValues")]
+    ///     public float value1;
+    /// 
+    ///     [OnlyShowIf("showAdditionalValues")]
+    ///     public int value2, value3, value4;
+    /// }
+    /// </example>
     public class OnlyShowIfAttribute : PropertyAttribute
     {
+        /// <summary>
+        /// The name of the serialized property to check
+        /// </summary>
+        /// <access>public string</access>
         public string propertyName;
 
         public OnlyShowIfAttribute(string propertyName)
@@ -76,8 +107,26 @@ namespace UModules
     /// Attribute to only display a property when a given serialized property is false
     /// </summary>
     /// <module>UM_Basic</module>
+    /// <example>
+    /// using UModules;
+    /// public class Foo : ExtendedBehaviour
+    /// {
+    ///     [SerializeField]
+    ///     private bool useSimpleMode = true;
+    /// 
+    ///     [DontShowIf("useSimpleMode")]
+    ///     public float value1;
+    /// 
+    ///     [DontShowIf("useSimpleMode")]
+    ///     public int value2, value3, value4;
+    /// }
+    /// </example>
     public class DontShowIfAttribute : PropertyAttribute
     {
+        /// <summary>
+        /// The name of the serialized property to check
+        /// </summary>
+        /// <access>public string</access>
         public string propertyName;
 
         public DontShowIfAttribute(string propertyName)

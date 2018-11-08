@@ -23,31 +23,36 @@ namespace UModules
         /// <summary>
         /// The stored layer mask
         /// </summary>
+        /// <access>private LayerMask</access>
         [SerializeField] private LayerMask value;
 
         /// <summary>
         /// Test if a given layer is contained within the mask
         /// </summary>
-        /// <param name="layer">The subject layer</param>
+        /// <access>public bool</access>
+        /// <param name="layer" type="int">The subject layer</param>
         /// <returns>True if the layer is contained in the mask, false otherwise</returns>
         public bool Test(int layer) { return value.Test(layer); }
         /// <summary>
         /// Implicitly convert a LayerMaskAsset to a LayerMask
         /// </summary>
-        /// <param name="layerMaskAsset"></param>
+        /// <access>public static</access>
+        /// <param name="layerMaskAsset" type="LayerMaskAsset"></param>
         public static implicit operator LayerMask(LayerMaskAsset layerMaskAsset) { return layerMaskAsset.value; }
     }
 
     /// <summary>
     /// Extension method container for working with layer masks
     /// </summary>
+    /// <module>UM_Basic</module>
     public static class LayerMaskExtensionMethods
     {
         /// <summary>
         /// Test if a given layer is contained with the given mask
         /// </summary>
-        /// <param name="mask">The mask to test</param>
-        /// <param name="layer">The subject layer</param>
+        /// <access>public static bool</access>
+        /// <param name="mask" type="this LayerMask">The mask to test</param>
+        /// <param name="layer" type="int">The subject layer</param>
         /// <returns>True if the layer is contained in the mask, false otherwise</returns>
         public static bool Test(this LayerMask mask, int layer)
         {

@@ -20,20 +20,24 @@ namespace UModules
         /// <summary>
         /// Cached Transform component, if it has been gotten yet
         /// </summary>
+        /// <access>private Transform</access>
         private Transform _transform;
         /// <summary>
         /// Redefined transform property to get Transform component on first reference, then return cached value
         /// </summary>
+        /// <access>new public Transform</access>
         new public Transform transform { get { return _transform ?? (_transform = GetComponent<Transform>()); } }
 
         /// <summary>
         /// Child classes can implement initialization here
         /// </summary>
+        /// <access>public virtual void</access>
         public virtual void Initialize() { }
 
         /// <summary>
         /// Call initialize on Awake
         /// </summary>
+        /// <access>protected void</access>
         protected void Awake()
         {
             Initialize();
@@ -43,8 +47,9 @@ namespace UModules
         /// Debug log function that automatically formats output.
         /// Adds class name to start of message, and caller name on second line
         /// </summary>
-        /// <param name="format"></param>
-        /// <param name="args"></param>
+        /// <access>public void</access>
+        /// <param name="format" type="string"></param>
+        /// <param name="args" type="params object[]"></param>
         public void Printf(string format, params object[] args)
         {
             Debug.Log(string.Format("{0} > {1}\nCaller: {2}", GetType().ToString(), string.Format(format, args), name));

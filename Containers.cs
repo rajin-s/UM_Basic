@@ -19,10 +19,13 @@
          /// <summary>
          /// The stored value
          /// </summary>
+         /// <access>private T</access>
          private T value = default(T);
+
          /// <summary>
          /// Set the stored value
          /// </summary>
+         /// <access>public T</access>
          /// <param name="newValue">The new value to store</param>
          /// <returns>The new value</returns>
          public T Set(T newValue)
@@ -30,9 +33,11 @@
              value = newValue;
              return value;
          }
+         
          /// <summary>
          /// Implicitly convert a Reference object into its stored value
          /// </summary>
+         /// <access>public static T</access>
          /// <param name="reference">The Reference object to convert</param>
          public static implicit operator T(Reference<T> reference)
          {
