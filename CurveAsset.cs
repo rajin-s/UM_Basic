@@ -162,6 +162,7 @@ namespace UModules
         /// <summary>
         /// Extension method to start a curve's Run routine on a given MonoBehaviour
         /// </summary>
+        /// <access>public static void</access>
         /// <param name="behaviour" type="this MonoBehaviour">The behaviour to start the routine on</param>
         /// <param name="curve" type="CurveAsset">The curve to get the routine from</param>
         /// <param name="duration" type="float">Inverse scale factor for input time</param>
@@ -177,6 +178,7 @@ namespace UModules
         /// <summary>
         /// Extension method to start a curve's Run routine on a given MonoBehaviour
         /// </summary>
+        /// <access>public static void</access>
         /// <param name="behaviour" type="this MonoBehaviour">The behaviour to start the routine on</param>
         /// <param name="curve" type="CurveAsset">The curve to get the routine from</param>
         /// <param name="duration" type="float">Inverse scale factor for input time</param>
@@ -190,6 +192,7 @@ namespace UModules
         /// <summary>
         /// Extension method to start a curve's Run routine on a given MonoBehaviour
         /// </summary>
+        /// <access>public static void</access>
         /// <param name="behaviour" type="this MonoBehaviour">The behaviour to start the routine on</param>
         /// <param name="curve" type="CurveAsset">The curve to get the routine from</param>
         /// <param name="callback" type="Action(float)">Callback action that takes an input float value</param>
@@ -203,6 +206,7 @@ namespace UModules
         /// <summary>
         /// Extension method to start a curve's Run routine on a given MonoBehaviour
         /// </summary>
+        /// <access>public static void</access>
         /// <param name="behaviour" type="this MonoBehaviour">The behaviour to start the routine on</param>
         /// <param name="curve" type="CurveAsset">The curve to get the routine from</param>
         /// <param name="callback" type="Action(float)">Callback action that takes an input float value</param>
@@ -216,6 +220,7 @@ namespace UModules
         /// Extension method to start a curve's Run routine on a given MonoBehaviour if it is not already active
         /// isActive is set true before calling onStart and set false after calling onEnd
         /// </summary>
+        /// <access>public static void</access>
         /// <param name="behaviour" type="this MonoBehaviour">The behaviour to start the routine on</param>
         /// <param name="curve" type="CurveAsset">The curve to get the routine from</param>
         /// <param name="duration" type="float">Inverse scale factor for input time</param>
@@ -234,6 +239,7 @@ namespace UModules
         /// Extension method to start a curve's Run routine on a given MonoBehaviour if it is not already active
         /// isActive is set true before evaluation and set false afterward
         /// </summary>
+        /// <access>public static void</access>
         /// <param name="behaviour" type="this MonoBehaviour">The behaviour to start the routine on</param>
         /// <param name="curve" type="CurveAsset">The curve to get the routine from</param>
         /// <param name="duration" type="float">Inverse scale factor for input time</param>
@@ -250,6 +256,7 @@ namespace UModules
         /// Extension method to start a curve's Run routine on a given MonoBehaviour if it is not already active
         /// isActive is set true before calling onStart and set false after calling onEnd
         /// </summary>
+        /// <access>public static void</access>
         /// <param name="behaviour" type="this MonoBehaviour">The behaviour to start the routine on</param>
         /// <param name="curve" type="CurveAsset">The curve to get the routine from</param>
         /// <param name="callback" type="Action(float)">Callback action that takes an input float value</param>
@@ -266,6 +273,7 @@ namespace UModules
         /// Extension method to start a curve's Run routine on a given MonoBehaviour if it is not already active
         /// isActive is set true before evaluation and set false afterward
         /// </summary>
+        /// <access>public static void</access>
         /// <param name="behaviour" type="this MonoBehaviour">The behaviour to start the routine on</param>
         /// <param name="curve" type="CurveAsset">The curve to get the routine from</param>
         /// <param name="callback" type="Action(float)">Callback action that takes an input float value</param>
