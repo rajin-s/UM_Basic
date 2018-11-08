@@ -1,7 +1,7 @@
 # UModule Basic Structures and Extensions
 
-## Contents
-- List with descriptions to be added
+## Wiki
+- You can find a table of contents, documentation, and examples over on the [wiki!](https://github.com/rajin-s/UM_Basic/wiki)
 
 ## Setup
 - Navigate to the desired install location inside a Unity project git repository
