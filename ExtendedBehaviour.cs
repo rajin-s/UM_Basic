@@ -26,7 +26,7 @@ namespace UModules
         /// Redefined transform property to get Transform component on first reference, then return cached value
         /// </summary>
         /// <access>new public Transform</access>
-        new public Transform transform { get { return _transform ?? (_transform = GetComponent<Transform>()); } }
+        new public Transform transform { get { return _transform ? _transform : (_transform = GetComponent<Transform>()); } }
 
         /// <summary>
         /// Child classes can implement initialization here
