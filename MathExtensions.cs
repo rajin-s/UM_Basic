@@ -26,7 +26,7 @@ namespace UModules
         /// <param name="v" type="this Vector2">Input vector to scale</param>
         /// <param name="s" type="Vector2">Scale vector</param>
         /// <returns>A new Vector2 (v.x * s.x, v.y * s.y)</returns>
-        public static Vector2 Scale(this Vector2 v, Vector2 s)
+        public static Vector2 Multiply(this Vector2 v, Vector2 s)
         {
             return new Vector2(v.x * s.x, v.y * s.y);
         }
